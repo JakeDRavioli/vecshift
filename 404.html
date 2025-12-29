@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 // SYSTEM ERROR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #39FF14; /* Toxic Green */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            /* Scanline effect */
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+        }
+        .error-container {
+            border: 2px solid #39FF14;
+            background-color: rgba(5, 5, 5, 0.95);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(57, 255, 20, 0.2);
+            position: relative;
+        }
+        .error-header {
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-size: 1.2em;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+        h1 {
+            font-family: 'Sedgwick Ave Display', cursive;
+            font-size: 4em;
+            margin: 0;
+            color: #fff;
+            text-shadow: 3px 3px 0px #39FF14;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        .cmd-line {
+            color: #39FF14;
+            margin-top: 20px;
+            background: #0a0a0a;
+            padding: 15px;
+            border-left: 3px solid #39FF14;
+            font-family: monospace;
+        }
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker { 50% { opacity: 0; } }
+        
+        .btn-return {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #39FF14;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Sedgwick Ave Display', cursive;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-return:hover {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 0 15px #39FF14;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="error-header">
+            <span>vecShift_Secure_Terminal_v2.0</span>
+            <span style="color:red;">OFFLINE</span>
+        </div>
+        
+        <h1>404 ERROR</h1>
+        <p>
+            The requested directory could not be located. The file may have been moved, deleted, or seized by Veritas Industries.
+        </p>
+        
+        <div class="cmd-line">
+            > initiating_recovery_protocol...<br>
+            > <span style="color:red">ERROR: target_lost.</span><br>
+            > waiting_for_input... <span class="blink">_</span>
+        </div>
+
+        <a href="/" class="btn-return">RETURN TO BASE</a>
+    </div>
+
+</body>
+</html>
