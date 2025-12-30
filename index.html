@@ -21,12 +21,46 @@
         /* =========================================
            VECSHIFT "STUDIO PROTOCOL" THEME
            ========================================= */
+		   
         :root {
             --studio-bg: #080808;
             --studio-panel: #111;
             --studio-green: #39FF14;
             --studio-text: #ddd;
             --studio-border: #333;
+        }
+
+
+		/* =========================================
+           SCROLLBAR THEMING
+           ========================================= */
+        
+        /* For Webkit Browsers (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the vertical scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--studio-bg); /* Matches page background */
+            border-left: 1px solid #222;  /* subtle divider line */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;       /* Default dark grey thumb */
+            border: 3px solid var(--studio-bg); /* Creates a padding effect around the thumb */
+            border-radius: 6px;           /* Slightly rounded corners */
+            transition: background-color 0.2s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--studio-green); /* Lights up neon green on hover */
+            box-shadow: 0 0 10px var(--studio-green); /* Adds a faint glow */
+        }
+
+        /* For Firefox (Standard Property) */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #333 var(--studio-bg); /* Thumb / Track */
         }
 
         body {
