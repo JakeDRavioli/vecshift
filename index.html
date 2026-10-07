@@ -3,498 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vecShift Studios</title>
+    <title>vecShift Studios &bull; Under Construction</title>
 
     <meta property="og:url" content="https://vecshift.co.uk/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="vecShift Studios">
     <meta property="og:description" content="Independent game studio. Creators of Rebellious Takeover.">
-	<meta property="og:image" content="https://vecshift.co.uk/Images/rebTakeover/vecshift.png">
-    <meta name="theme-color" content="#0a0a0a">
-    
-    <link rel="icon" type="image/png" href="normalicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="stylesheet" href="styles.css?v=3.3">
+    <meta name="theme-color" content="#080808">
+
+    <link rel="icon" type="image/png" href="/normalicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/normalicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/normalicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0bca0ecf78.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           VECSHIFT "STUDIO PROTOCOL" THEME
-           ========================================= */
-		   
         :root {
             --studio-bg: #080808;
-            --studio-panel: #111;
+            --studio-panel: #111111;
             --studio-green: #39FF14;
-            --studio-text: #ddd;
-            --studio-border: #333;
+            --studio-text: #e0e0e0;
+            --studio-muted: #888888;
+            --studio-border: #242424;
+            --studio-green-glow: rgba(57, 255, 20, 0.25);
         }
 
-
-		/* =========================================
-           SCROLLBAR THEMING
-           ========================================= */
-        
-        /* For Webkit Browsers (Chrome, Edge, Safari) */
-        ::-webkit-scrollbar {
-            width: 12px; /* Width of the vertical scrollbar */
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--studio-bg); /* Matches page background */
-            border-left: 1px solid #222;  /* subtle divider line */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #333;       /* Default dark grey thumb */
-            border: 3px solid var(--studio-bg); /* Creates a padding effect around the thumb */
-            border-radius: 6px;           /* Slightly rounded corners */
-            transition: background-color 0.2s ease;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: var(--studio-green); /* Lights up neon green on hover */
-            box-shadow: 0 0 10px var(--studio-green); /* Adds a faint glow */
-        }
-
-        /* For Firefox (Standard Property) */
-        html {
-            scrollbar-width: thin;
-            scrollbar-color: #333 var(--studio-bg); /* Thumb / Track */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--studio-bg);
-            color: var(--studio-text);
-            font-family: 'Share Tech Mono', monospace;
-            background-image: 
-                radial-gradient(circle at top center, #1a1a1a 0%, #080808 60%);
-            margin: 0;
-        }
-
-        /* --- FIXED HEADER --- */
-        .header {
-            position: fixed;    /* Makes it sticky */
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;      /* Ensures it sits on top of everything */
-        }
-
-		.navbar-container {
-            background: rgba(8, 8, 8, 0.95);
-            border-bottom: 1px solid var(--studio-green);
-            margin-top: 0;
-            width: 100%;
-            border-radius: 0;
-            backdrop-filter: blur(10px);
-            
-            /* --- FIXES BELOW --- */
-            padding: 10px 90px; /* Adds breathing room on the left and right */
-            display: flex;      /* Enables flexbox layout */
-            justify-content: space-between; /* Pushes Logo to left, Links to right */
-            align-items: center; /* Ensures they are vertically centered */
-            box-sizing: border-box; /* Prevents the padding from making the bar wider than 100% */
-        }
-        .nav-logo {
-            font-family: 'Sedgwick Ave Display', cursive;
-            color: var(--studio-green);
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center; /* Vertically aligns icon and text */
-            gap: 10px;           /* Space between icon and text */
-        }
-
-        .nav-logo img {
-            width: 32px;
-            height: 32px;
-            filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.4));
-        }
-
-        .nav-links-desktop a {
-            font-family: 'Share Tech Mono', monospace;
-            text-transform: uppercase;
-            font-size: 1rem;
-        }
-
-/* --- HERO SECTION (UPDATED) --- */
-        #studio-hero {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 40px 20px;
-            padding-top: 80px;
-            overflow: hidden; /* Needed for the moving grid */
-            
-            /* Dark tech background with a subtle moving grid */
             background-color: var(--studio-bg);
             background-image: 
-                linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        .logo-float-wrapper {
-            animation: levitate-glow 6s ease-in-out infinite;
-            z-index: 2;
-            /* Ensure the wrapper centers nicely */
+                radial-gradient(circle at 50% 20%, rgba(57, 255, 20, 0.08) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            color: var(--studio-text);
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: hidden;
         }
 
-        /* Image handles the 3D Tilt */
-        .studio-logo-large {
-            max-width: 600px;
+        .terminal-card {
             width: 100%;
-            /* Smooths out the mouse movement so it's not jittery */
-            transition: transform 0.1s ease-out; 
-            /* Gives it that 3D depth */
-            perspective: 1000px;
-            /* Initial shadow */
-            filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.2));
-        }
-
-        .tagline {
-            font-family: 'Sedgwick Ave Display', cursive;
-            font-size: 2rem;
-            color: #fff;
-            margin-top: 30px;
-            text-align: center;
-            z-index: 2;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8); /* Strong shadow for readability */
-            letter-spacing: 2px;
-        }
-
-        /* --- ANIMATIONS --- */
-        
-        /* Moves the background grid slowly */
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
-
-        /* Combines floating with a pulsing shadow */
-        @keyframes levitate-glow {
-            0% { 
-                transform: translateY(0px); 
-                filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.2));
-            }
-            50% { 
-                transform: translateY(-15px); 
-                filter: drop-shadow(0 20px 30px rgba(57, 255, 20, 0.4));
-            }
-            100% { 
-                transform: translateY(0px); 
-                filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.2));
-            }
-        }
-
-        /* --- PROJECT CARDS --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .project-card {
+            max-width: 600px;
             background: var(--studio-panel);
             border: 1px solid var(--studio-border);
-            border-radius: 4px;
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                0 0 35px rgba(57, 255, 20, 0.12);
             overflow: hidden;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-            display: flex;
-            flex-direction: column;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--studio-green);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .thumb-container {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            background: #000;
+        .terminal-header {
+            background: #181818;
             border-bottom: 1px solid var(--studio-border);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #2e2e2e;
+        }
+
+        .terminal-dot.active {
+            background: var(--studio-green);
+            box-shadow: 0 0 8px var(--studio-green);
+        }
+
+        .terminal-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--studio-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .terminal-body {
+            padding: 42px 32px;
+            text-align: center;
+        }
+
+        .logo-wrap {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 24px;
+            border-radius: 14px;
+            background: #181818;
+            border: 1px solid #2e2e2e;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.15);
         }
 
-        .project-thumb {
+        .logo-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
-        .project-card:hover .project-thumb {
-            transform: scale(1.03);
-        }
-
-        .project-info {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            color: #fff;
-            font-family: 'Sedgwick Ave Display', cursive;
-            font-size: 1.6rem;
-            margin: 0 0 10px 0;
-        }
-
-        .status-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            border: 1px solid var(--studio-green);
-            color: var(--studio-green);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            border-radius: 2px;
-        }
-
-        .cta-link {
-            margin-top: auto;
-            padding-top: 20px;
-            color: #fff;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.2s;
-        }
-        
-        .project-card:hover .cta-link {
-            color: var(--studio-green);
-        }
-
-        /* --- CONTACT BUTTONS (FIXED) --- */
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .contact-btn {
-            background: transparent;
-            border: 1px solid var(--studio-border);
-            color: #fff;
-            padding: 15px 40px;
-            font-family: 'Share Tech Mono', monospace;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            text-decoration: none;
+        .status-tag {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            transition: all 0.2s;
-            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
-        }
-
-        .contact-btn:hover {
-            border-color: var(--studio-green);
-            background: rgba(57, 255, 20, 0.05);
+            gap: 8px;
+            padding: 6px 14px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.82rem;
             color: var(--studio-green);
-            transform: translateY(-3px);
+            background: rgba(57, 255, 20, 0.08);
+            border: 1px solid rgba(57, 255, 20, 0.35);
+            border-radius: 4px;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* --- SECTIONS --- */
-        .section-header-clean {
-            font-family: 'Sedgwick Ave Display', cursive;
-            color: #fff;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-header-clean span {
-            border-bottom: 2px solid var(--studio-green);
-            padding-bottom: 5px;
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--studio-green);
+            box-shadow: 0 0 8px var(--studio-green);
+            animation: pulse 1.6s infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .lead {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--studio-muted);
+            margin-bottom: 30px;
+        }
+
+        .terminal-log {
+            font-family: 'Share Tech Mono', monospace;
+            background: #090909;
+            border: 1px solid #202020;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 30px;
+            text-align: left;
+            font-size: 0.88rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .terminal-log span.green {
+            color: var(--studio-green);
+        }
+
+        .links-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: #1c1c1c;
+            border: 1px solid #333333;
+            transition: all 0.25s ease;
+        }
+
+        .btn-action:hover {
+            border-color: var(--studio-green);
+            color: var(--studio-green);
+            box-shadow: 0 0 15px var(--studio-green-glow);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 36px;
+            font-size: 0.8rem;
+            color: #555555;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        @media (max-width: 480px) {
+            .terminal-body {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <span class="terminal-dot active"></span>
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+            </div>
+            <div class="terminal-title">vecShift // System Status</div>
+            <div style="width: 40px;"></div>
+        </div>
 
-    <div class="header">
-        <div class="navbar-container">
-            <a class="nav-logo" href="#">
-               <img src="Images/vecshift.ico" alt="VS Logo">
-               vecShift
-            </a>
-            <nav class="nav-links-desktop">
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="mailto:contact@vecshift.co.uk">Contact</a>
-                <a href="https://jakedravioli.vecshift.co.uk" target="_blank" style="color: var(--studio-green);">
-                    Jake's Portfolio <i class="fas fa-external-link-alt"></i>
+        <div class="terminal-body">
+            <div class="logo-wrap">
+                <img src="/normalicon/favicon-96x96.png" alt="vecShift Logo">
+            </div>
+
+            <div class="status-tag">
+                <span class="pulse-dot"></span>
+                Protocol: Under Maintenance
+            </div>
+
+            <h1>vecShift Studios</h1>
+            <p class="lead">
+                We're currently refactoring our infrastructure and preparing the next generation of our studio platform.
+            </p>
+
+            <div class="terminal-log">
+                <div>&gt; STATUS: <span class="green">UPGRADE_IN_PROGRESS</span></div>
+                <div>&gt; SYSTEMS: <span class="green">OFFLINE FOR SCHEDULED MAINTENANCE</span></div>
+                <div>&gt; TARGET: <span class="green">STAND BY FOR DEPLOYMENT</span></div>
+            </div>
+
+            <div class="links-group">
+                <a href="https://github.com/JakeDRavioli" target="_blank" rel="noopener noreferrer" class="btn-action">
+                    <i class="fa-brands fa-github"></i> GitHub
                 </a>
-            </nav>
-        </div>
-    </div>
-
-	<div id="studio-hero">
-        <div class="logo-float-wrapper">
-            <img src="Images/rebTakeover/vecshift.png" alt="vecShift Studios" class="studio-logo-large" id="tilt-logo">
-        </div>
-        <h1 class="tagline">STORIES THAT STICK;<br><em>GAMES THAT STICK MORE</em>.</h1>
-    </div>
-
-    <div class="content">
-        
-        <div id="projects" style="margin-top: 60px;">
-            <h2 class="section-header-clean"><span>Our Projects</span></h2>
-        </div>
-
-        <div class="project-grid">
-            <a href="https://jakedravioli.vecshift.co.uk/rebellioustakeover.html" style="text-decoration: none;">
-                <div class="project-card">
-                    <div class="thumb-container">
-                        <img src="Images/rebTakeover/rebTakeoverPromo_NoStudio.png" alt="Rebellious Takeover" class="project-thumb">
-                    </div>
-                    <div class="project-info">
-                        <div><span class="status-badge">In Development</span></div>
-                        <h3 class="project-title">Rebellious Takeover</h3>
-                        <p style="color: #aaa; line-height: 1.6;">
-                            A hybrid beat-'em-up visual novel set in the cyberpunk city of Nexon. Fight Veritas Industries, reclaim your future, and manage a team of rebellious outcasts.
-                        </p>
-                        <div class="cta-link">
-                            View Official Page <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://jakedravioli.vecshift.co.uk/goobersimulator" style="text-decoration: none;">
-                <div class="project-card">
-                    <div class="thumb-container">
-                        <img src="Images/goober-sim-thumb.png" alt="Goober Simulator" class="project-thumb">
-                    </div>
-                    <div class="project-info">
-                        <div><span class="status-badge" style="border-color: #666; color: #ccc;">Released</span></div>
-                        <h3 class="project-title">Goober Simulator</h3>
-                        <p style="color: #aaa; line-height: 1.6;">
-                            A chaotic simulator starring all of JDR's characters. Shake 'em around, listen to what they're saying, Jam with 'em, whatever! Good for screensaver material.
-                        </p>
-                        <div class="cta-link">
-                            Play Now <i class="fas fa-gamepad"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div id="about" style="margin-top: 100px;">
-            <h2 class="section-header-clean"><span>Who We Are</span></h2>
-        </div>
-
-        <div class="home-section-plate" style="background: var(--studio-panel); border: 1px solid var(--studio-border); max-width: 800px; margin: 0 auto; padding: 30px;">
-            <p style="color: #ddd; font-size: 1.1rem; line-height: 1.8;">
-                Founded by <strong style="color: var(--studio-green);">JDR</strong> (JakeDRavioli) in 2025, <strong style="color: var(--studio-green);">vecShift Studios</strong> is the place for future visions in indie development.
-            </p>
-            
-            <p style="color: #bbb; font-size: 1rem; margin-top: 20px; line-height: 1.6;">
-                Originally coming off of Roblox as <em>Dev4Fun Studios</em>, vecShift has evolved its efforts to focus primarily on high-fidelity <span style="color: #fff;">Unreal Engine 5</span> projects and accessible <span style="color: #fff;">HTML5</span> web games.
-            </p>
-
-            <p style="color: #bbb; font-size: 1rem; margin-top: 20px; line-height: 1.6;">
-                We don't just want to make games; we strive to make the entire Indie Games ecosphere absolutely awesome.
-            </p>
-        </div>
-
-        <div style="margin-top: 100px; margin-bottom: 80px;">
-            <h2 class="section-header-clean"><span>Contact Us</span></h2>
-            
-            <div class="contact-grid">
-                <a href="mailto:contact@vecshift.co.uk" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Email Us
-                </a>
-                
-                <a href="https://discord.gg/B3CyG6F8x7" target="_blank" class="contact-btn">
-                    <i class="fab fa-discord"></i> Discord
+                <a href="https://bsky.app/profile/jakedravioli.bsky.social" target="_blank" rel="noopener noreferrer" class="btn-action">
+                    <i class="fa-solid fa-cloud"></i> Bluesky
                 </a>
             </div>
+
+            <div class="footer">
+                &copy; <span id="year">2026</span> vecShift Studios &bull; Systems Active
+            </div>
         </div>
-
     </div>
-
-<p class="footer">
-  <span style="font-size: 1.2em;">This website is under construction.<br></span>
-    Copyright &copy; <span id="copyright-year"></span> Jake D. / JakeDRavioli / "JDR". All Rights Reserved.
-    <br>
-    <span style="font-size: 0.8em;">"JakeDRavioli"™, "Dev4Fun Studios"™, and "vecShift Studios"™ are trademarks of Jake D.</span>
-</p>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-<script>
-	        const heroSection = document.getElementById('studio-hero');
-        const logo = document.getElementById('tilt-logo');
-
-        if (heroSection && logo) {
-            heroSection.addEventListener('mousemove', (e) => {
-                // Get the width and height of the hero section
-                const { offsetWidth: width, offsetHeight: height } = heroSection;
-                const { clientX: x, clientY: y } = e;
-
-                // Calculate where the mouse is relative to the center (range: -1 to 1)
-                const xWalk = (x / width * 2) - 1; 
-                const yWalk = (y / height * 2) - 1;
-
-                // Max rotation degrees
-                const xRotation = 15; 
-                const yRotation = 15;
-
-                // Calculate the rotate values
-                // Note: Mouse Y controls Rotate X (tilting up/down), Mouse X controls Rotate Y (tilting left/right)
-                // We multiply by -1 on the X-axis rotation to make it tilt *towards* the mouse naturally
-                const xRotateVal = yWalk * -xRotation;
-                const yRotateVal = xWalk * yRotation;
-
-                // Apply the transform
-                // perspective(1000px) gives it the 3D depth
-                // scale(1.05) brings it slightly forward when active
-                logo.style.transform = `perspective(1000px) rotateX(${xRotateVal}deg) rotateY(${yRotateVal}deg) scale3d(1.05, 1.05, 1.05)`;
-                
-                // Optional: Dynamic Shadow based on tilt
-                // Moves the shadow in the opposite direction of the tilt
-                const shadowX = xWalk * -20;
-                const shadowY = yWalk * -20;
-                logo.style.filter = `drop-shadow(${shadowX}px ${shadowY}px 20px rgba(57, 255, 20, 0.4))`;
-            });
-
-            // Reset when mouse leaves the section
-            heroSection.addEventListener('mouseleave', () => {
-                logo.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-                logo.style.filter = 'drop-shadow(0 0 10px rgba(57, 255, 20, 0.2))';
-            });
-        }
-</script>
-	
 </body>
 </html>

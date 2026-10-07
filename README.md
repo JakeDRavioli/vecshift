@@ -1,2 +1,0 @@
-# vecshift
-vecShift Studios' site.
